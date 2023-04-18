@@ -10,6 +10,15 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
+
+  plugins: ['react'],
+
+  settings: {
+    react: {
+      version: 16,
+    },
+  },
+
   rules: {
     'no-plusplus': [2, { allowForLoopAfterthoughts: true }],
     'no-underscore-dangle': 'off',
