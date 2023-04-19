@@ -3,9 +3,15 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: 'airbnb-base',
+  extends: [
+    'airbnb-base',
+    'plugin:react/recommended',
+  ],
   overrides: [
   ],
+
+  parser: '@babel/eslint-parser',
+
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
@@ -23,5 +29,6 @@ module.exports = {
     'no-plusplus': [2, { allowForLoopAfterthoughts: true }],
     'no-underscore-dangle': 'off',
     'class-methods-use-this': 'off',
+    'import/prefer-default-export': 'off',
   },
 };
