@@ -1397,3 +1397,11 @@ main {
   top: 50%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%); }
+
+.page-not-found {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
