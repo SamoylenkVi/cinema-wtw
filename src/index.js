@@ -13,6 +13,7 @@ import { MyList } from './components/my-list.jsx';
 import { MovieDetailsPage } from './components/movie-details-page.jsx';
 import { AddReviewPage } from './components/add-review-page.jsx';
 import { Player } from './components/player.jsx';
+import { films } from './mocks/films';
 
 const router = createBrowserRouter([
   {
@@ -21,15 +22,15 @@ const router = createBrowserRouter([
   },
   {
     path: '/',
-    element: <MainPage />,
+    element: <MainPage films={films} />,
   },
   {
     path: '/login',
     element: <Login />,
   },
   {
-    path: '/mylist',
-    element: <MyList />,
+    path: '/my-list',
+    element: <MyList films={films} />,
   },
   {
     path: '/films/:id',

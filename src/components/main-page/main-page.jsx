@@ -1,9 +1,9 @@
 import React from 'react';
-import { FilmCard } from '../film-card.jsx';
+import PropTypes from 'prop-types';
+
 import { MovieCardMain } from './movie-card-main.jsx';
 import { Footer } from '../footer.jsx';
-
-const FILM_CARD_COUNT = 12;
+import { FilmList } from '../film-list.jsx';
 
 const filmInformation = {
   name: 'Shutter',
@@ -11,8 +11,7 @@ const filmInformation = {
   releaseDate: 2015,
 };
 
-export const MainPage = () => (
-    <>
+export const MainPage = ({ films }) => <>
       <MovieCardMain
       name= {filmInformation.name}
       genre={filmInformation.genre}
@@ -56,15 +55,12 @@ export const MainPage = () => (
             </li>
           </ul>
 
-          <div className="catalog__movies-list">
-            {Array.from({ length: FILM_CARD_COUNT }, (_, index) => <FilmCard key={index} />)}
-          </div>
-
-          <div className="catalog__more">
-            <button className="catalog__button" type="button">Show more</button>
-          </div>
+          <FilmList filmsData={films} />
         </section>
         <Footer />
       </div>
-  </>
-);
+  </>;
+
+MainPage.propTypes = {
+  films: PropTypes.arrayOf(PropTypes.objectOf).isRequired,
+};
