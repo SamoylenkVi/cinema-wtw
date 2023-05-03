@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Footer } from './footer.jsx';
 import { FilmCard } from './film-card.jsx';
-import { FILM_CARD_COUNT } from '../const';
+import { FILM_CARD_COUNT } from '../constants';
 
 export const MyList = (props) => {
   const { films } = props;

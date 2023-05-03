@@ -1,12 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { regexAlt } from '../const';
+import { REGEX_ALT } from '../constants';
 import { createAltText } from '../utils/film-card';
 
 export const FilmCard = ({
   name, previewImage, id, onMouseEnter,
 }) => {
-  const altText = createAltText(previewImage, regexAlt);
+  const altText = createAltText(previewImage, REGEX_ALT);
 
   return (
     <article onMouseEnter={() => onMouseEnter(id)} className="small-movie-card catalog__movies-card">
@@ -14,7 +15,7 @@ export const FilmCard = ({
         <img src={previewImage} alt={altText} width="280" height="175" />
       </div>
       <h3 className="small-movie-card__title">
-        <a className="small-movie-card__link" href="movie-page.html">{name}</a>
+        <Link to={`/films/${id}/review`}className="small-movie-card__link">{name}</Link>
       </h3>
     </article>
   );

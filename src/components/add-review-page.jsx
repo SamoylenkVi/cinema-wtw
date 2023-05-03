@@ -1,12 +1,16 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import { regexAlt } from '../const';
+import { Link, useParams } from 'react-router-dom';
+import { REGEX_ALT } from '../constants';
 import { createAltText } from '../utils/film-card';
 import { AddReviewForm } from './add-review-form.jsx';
+import { films } from '../mocks/films';
 
-export const AddReviewPage = ({ name, previewImage }) => {
-  const altText = createAltText(previewImage, regexAlt);
+export const AddReviewPage = () => {
+  const { id } = useParams();
+
+  const { name, previewImage } = films.find((film) => film.id === id);
+
+  const altText = createAltText(previewImage, REGEX_ALT);
 
   return (
     <section className="movie-card movie-card--full">
@@ -51,9 +55,4 @@ export const AddReviewPage = ({ name, previewImage }) => {
       <AddReviewForm />
     </section>
   );
-};
-
-AddReviewPage.propTypes = {
-  name: PropTypes.string.isRequired,
-  previewImage: PropTypes.string.isRequired,
 };
