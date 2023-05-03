@@ -16,7 +16,7 @@ export const FilmList = ({ filmsData }) => {
         {Array.from(
           { length: FILM_CARD_COUNT },
           (_, index) => <FilmCard
-            key={index}
+            key={filmsData[index].id}
             name = {filmsData[index].name}
             previewImage = {filmsData[index].previewImage}
             id = {filmsData[index].id}

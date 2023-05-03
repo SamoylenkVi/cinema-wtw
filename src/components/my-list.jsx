@@ -4,9 +4,7 @@ import { Footer } from './footer.jsx';
 import { FilmCard } from './film-card.jsx';
 import { FILM_CARD_COUNT } from '../constants';
 
-export const MyList = (props) => {
-  const { films } = props;
-  return (
+export const MyList = ({ films }) => (
   <div className="user-page">
     <header className="page-header user-page__head">
       <div className="logo">
@@ -33,7 +31,7 @@ export const MyList = (props) => {
       {Array.from(
         { length: FILM_CARD_COUNT },
         (_, index) => <FilmCard
-          key={index}
+          key={films[index].id}
           name = {films[index].name}
           previewImage = {films[index].previewImage}/>,
       )}
@@ -42,8 +40,7 @@ export const MyList = (props) => {
 
     <Footer />
   </div>
-  );
-};
+);
 
 MyList.propTypes = {
   films: PropTypes.arrayOf(PropTypes.objectOf).isRequired,
