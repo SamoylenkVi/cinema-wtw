@@ -25,11 +25,10 @@ export const AddReviewForm = () => {
         <div className="rating">
           <div className="rating__stars">
           {
-          ratings.map((rating, index) => (
-            <>
+          ratings.map((rating) => (
+            <React.Fragment key={rating}>
               <input
                 onChange={handleRatingFilm}
-                key={index}
                 className="rating__input"
                 id={`star-${rating}`}
                 type="radio"
@@ -40,7 +39,7 @@ export const AddReviewForm = () => {
                 className="rating__label"
                 htmlFor={`star-${rating}`}
               > {`Rating ${rating}`} </label>
-            </>
+            </React.Fragment>
           ))
           }
           </div>
