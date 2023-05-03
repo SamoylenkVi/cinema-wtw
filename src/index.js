@@ -13,6 +13,9 @@ import { MyList } from './components/my-list.jsx';
 import { MovieDetailsPage } from './components/movie-details-page.jsx';
 import { AddReviewPage } from './components/add-review-page.jsx';
 import { Player } from './components/player.jsx';
+import { films } from './mocks/films';
+
+const film = films[2];
 
 const router = createBrowserRouter([
   {
@@ -21,7 +24,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/',
-    element: <MainPage />,
+    element: <MainPage films={films} />,
   },
   {
     path: '/login',
@@ -29,7 +32,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/mylist',
-    element: <MyList />,
+    element: <MyList films={films} />,
   },
   {
     path: '/films/:id',
@@ -37,7 +40,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/films/:id/review',
-    element: <AddReviewPage />,
+    element: <AddReviewPage name={film.name} previewImage={film.previewImage}/>,
   },
   {
     path: '/player/:id',
