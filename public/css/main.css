@@ -838,18 +838,15 @@ main {
 
 .movie-nav__item {
   margin-right: 35px; }
-  .movie-nav__item--active .movie-nav__link {
-    font-weight: bold; }
-    .movie-nav__item--active .movie-nav__link::after {
-      display: block; }
   .movie-nav__item:last-child {
     margin-right: 0; }
 
 .movie-nav__link {
   display: block;
   color: #EEE5B5;
-  text-decoration: none;
   position: relative;
+  background-color: transparent;
+  border: none;
   padding-bottom: 19px; }
   .movie-nav__link::after {
     content: '';
@@ -863,6 +860,11 @@ main {
     display: none; }
   .movie-nav__link:hover::after {
     display: block; }
+
+.movie-nav__link.movie-nav__link--active {
+  font-weight: bold; }
+.movie-nav__link--active.movie-nav__link::after {
+  display: block; }
 
 .movie-rating {
   display: -webkit-box;
