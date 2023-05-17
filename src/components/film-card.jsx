@@ -18,7 +18,9 @@ export const FilmCard = ({
   const [isVideoError, setVideoError] = useState(false);
 
   const playVideo = () => {
-    onMouseEnter(id);
+    if (onMouseEnter) {
+      onMouseEnter(id);
+    }
     setVideo(!isVideo);
   };
 
@@ -41,7 +43,7 @@ export const FilmCard = ({
       </div>
       <h3 className="small-movie-card__title">
         <Link
-          to={`/films/${id}/review`}
+          to={`/films/${id}`}
           className={cn('small-movie-card__link', { 'small-movie-card__link-video': isVideo })}
         >
           {name}
