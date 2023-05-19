@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 import { NAVIGATION_BUTTONS } from './constants';
@@ -12,9 +12,6 @@ export const DetailsNavigation = ({ film }) => {
     const buttonName = evt.target.getAttribute('data-name');
     setCurrentButton(buttonName);
   };
-
-  useEffect(() => {
-  }, [currentButton]);
 
   return (
     <>

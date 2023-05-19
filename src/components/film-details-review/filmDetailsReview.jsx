@@ -10,19 +10,17 @@ export const FilmDetailsReview = ({ comments }) => {
   ));
 
   return (
-    <>
-      <div className="movie-card__reviews movie-card__row">
-        <div className="movie-card__reviews-col">
-          {commentComponents.slice(0, 3)}
-        </div>
-        <div className="movie-card__reviews-col">
-          {commentComponents.slice(3, 6)}
-        </div>
+    <div className="movie-card__reviews movie-card__row">
+      <div className="movie-card__reviews-col">
+        {commentComponents.slice(0, 3)}
       </div>
-    </>
+      <div className="movie-card__reviews-col">
+        {commentComponents.slice(3, 6)}
+      </div>
+    </div>
   );
 };
 
 FilmDetailsReview.propTypes = {
-  comments: PropTypes.objectOf(),
+  comments: PropTypes.object,
 };

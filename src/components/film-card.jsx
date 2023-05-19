@@ -1,5 +1,5 @@
 import React, {
-  useState, useEffect,
+  useState, useRef,
 } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -11,35 +11,38 @@ import { VideoPlayer } from './video-player.jsx';
 export const FilmCard = ({
   name, previewImage, previewVideoLink, id, onMouseEnter,
 }) => {
-  const videoRef = React.createRef();
+  const videoRef = useRef();
 
   const altText = createAltText(previewImage, REGEX_ALT);
-  const [isVideo, setVideo] = useState(false);
-  const [isVideoError, setVideoError] = useState(false);
+  const [isVideo, setIsVideo] = useState(false);
+  const [isVideoError, setIsVideoError] = useState(false);
 
   const playVideo = () => {
     if (onMouseEnter) {
       onMouseEnter(id);
     }
-    setVideo(!isVideo);
-  };
+    setIsVideo(true);
 
-  useEffect(() => {
     if (isVideo && videoRef.current) {
+      setIsVideoError(false);
+
       videoRef.current.play().catch(() => {
-        setVideoError(!isVideoError);
+        setIsVideoError(true);
       });
     }
-  }, [isVideo]);
+  };
+
+  const stopVideo = () => {
+    setIsVideo(false);
+  };
 
   return (
-    <article onMouseEnter={playVideo} onMouseLeave={playVideo} className="small-movie-card catalog__movies-card">
+    <article onMouseEnter={playVideo} onMouseLeave={stopVideo} className="small-movie-card catalog__movies-card">
       <div className="small-movie-card__image">
-        {isVideo
+        {(isVideo && !isVideoError)
           ? <VideoPlayer src={previewVideoLink} ref={videoRef} />
           : <img src={previewImage} alt={altText} width="280" height="175" />
         }
-        {isVideoError && <img src={previewImage} alt={altText} width="280" height="175" />}
       </div>
       <h3 className="small-movie-card__title">
         <Link

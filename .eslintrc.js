@@ -30,6 +30,5 @@ module.exports = {
     'no-underscore-dangle': 'off',
     'class-methods-use-this': 'off',
     'import/prefer-default-export': 'off',
-    'react/react-in-jsx-scope': 'off',
   },
 };

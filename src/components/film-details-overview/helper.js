@@ -1,23 +1,15 @@
-const RATING__LEVEL = {
-  BAD: 'Bad',
-  NORMAL: 'Normal',
-  GOOD: 'Good',
-  VERY_GOOD: 'Very good',
-  AWESOME: 'Awesome',
-};
-
-const STARRING_MAX = 3;
+import { RATING__LEVEL, RATING_SCORE, STARRING_MAX } from './constants';
 
 export const calculateRatingLevel = (rating) => {
-  if (rating < 3) {
+  if (rating < RATING_SCORE.BAD) {
     return RATING__LEVEL.BAD;
   }
-  if (rating < 5) {
+  if (rating < RATING_SCORE.NORMAL) {
     return RATING__LEVEL.NORMAL;
   }
-  if (rating < 8) {
+  if (rating < RATING_SCORE.GOOD) {
     return RATING__LEVEL.GOOD;
-  } if (rating < 10) {
+  } if (rating < RATING_SCORE.AWESOME) {
     return RATING__LEVEL.VERY_GOOD;
   }
   return RATING__LEVEL.AWESOME;
