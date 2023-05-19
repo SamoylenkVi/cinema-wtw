@@ -19,6 +19,7 @@ export const FilmList = ({ filmsData }) => {
             key={filmsData[index].id}
             name = {filmsData[index].name}
             previewImage = {filmsData[index].previewImage}
+            previewVideoLink = {filmsData[index].previewVideoLink}
             id = {filmsData[index].id}
             onMouseEnter={handleMouseEnter}/>,
         )}

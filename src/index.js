@@ -10,7 +10,7 @@ import { MainPage } from './components/main-page/main-page.jsx';
 import { NotFoundPage } from './components/not-found-page.jsx';
 import { Login } from './components/login.jsx';
 import { MyList } from './components/my-list.jsx';
-import { MovieDetailsPage } from './components/movie-details-page.jsx';
+import { FilmDetailsPage } from './components/film-details-page/film-details-page.jsx';
 import { AddReviewPage } from './components/add-review-page.jsx';
 import { Player } from './components/player.jsx';
 import { films } from './mocks/films';
@@ -34,7 +34,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/films/:id',
-    element: <MovieDetailsPage />,
+    element: <FilmDetailsPage films={films} />,
   },
   {
     path: '/films/:id/review',
